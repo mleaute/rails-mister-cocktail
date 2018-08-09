@@ -1,0 +1,11 @@
+<h1>Ajoute</h1>
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :description %>
+  <%= f.association :ingredient, collection: @ingredients, prompt: "Choisi ton ingrédient hmm..." %>
+  <%= f.submit %>
+<% end %>
+
+<%#= select_tag "Ingredient", options_from_collection_for_select(
+      @ingredients, :name, :name), class: 'select2' %>

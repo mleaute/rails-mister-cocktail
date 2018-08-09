@@ -1,11 +1,21 @@
-<h1>Hello Cocktails 👀</h1>
+<div class="banner">
+    <h1>Hello Cocktails</h1>
+</div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name %></li>
-  <% end %>
-</ul>
-
-
-<h2><%= link_to "add a new Cocktail", new_cocktail_path %></h2>
-
+<div class="wrapper">
+  <div class="container" style="height: 100vh;">
+    <h2 class="text-center">Cocktails</h2>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-6">
+          <%= link_to cocktail_path(cocktail) do %>
+            <div class="card" data-aos="zoom-in-up">
+              <h3><%= cocktail.name %></h3>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'créer ton expérience',  new_cocktail_path, class: 'text-center btn btn-success', style: 'display: block; margin-top: 15px;', :'data-aos' => 'zoom-out-up' %>
+  </div>
+</div>
