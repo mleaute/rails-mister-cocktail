@@ -1,6 +1,4 @@
 <h1>Hello new cocktail </h1>
 
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form', cocktail: @cocktail %>
+<%= link_to 'Back', cocktails_path %>

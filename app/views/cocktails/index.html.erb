@@ -9,13 +9,23 @@
       <% @cocktails.each do |cocktail| %>
         <div class="col-xs-6">
           <%= link_to cocktail_path(cocktail) do %>
-            <div class="card" data-aos="zoom-in-up">
-              <h3><%= cocktail.name %></h3>
-            </div>
+            <% if cocktail.photo.url %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+                <h3><%= cocktail.name %></h3>
+              </div>
+            <% else %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://hungrylikeawolfe.files.wordpress.com/2011/09/martini.jpg')">
+                <h3><%= cocktail.name %></h3>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
     </div>
-    <%= link_to 'créer ton expérience',  new_cocktail_path, class: 'text-center btn btn-success', style: 'display: block; margin-top: 15px;', :'data-aos' => 'zoom-out-up' %>
+    <%= link_to 'créer ton expérience',  new_cocktail_path, class: 'text-center btn btn-success', style: 'display: block; margin-top: 15px;' %>
   </div>
 </div>
+
+
+
+
